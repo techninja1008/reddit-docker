@@ -4,4 +4,4 @@ ADD entrypoint /entrypoint
 
 VOLUME /var/lib/rabbitmq
 
-CMD ["/bin/bash", "-c", "/entrypoint", "rabbitmq-server"]
+ENTRYPOINT ["/bin/bash", "-c", "/entrypoint", "/docker-entrypoint.sh"]

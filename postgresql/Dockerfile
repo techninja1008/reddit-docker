@@ -8,4 +8,4 @@ USER root
 
 VOLUME /var/lib/postgresql/data
 ADD entrypoint /entrypoint
-CMD ["/bin/bash", "-c", "/entrypoint", "postgres"]
+ENTRYPOINT ["/bin/bash", "-c", "/entrypoint", "/docker-entrypoint.sh"]

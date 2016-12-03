@@ -5,4 +5,4 @@ ADD install.cql /install.cql
 VOLUME /var/lib/cassandra
 ADD entrypoint /entrypoint
 
-CMD ["/bin/bash", "-c", "/entrypoint", "cassandra", "-f"]
+ENTRYPOINT ["/bin/bash", "-c", "/entrypoint", "/docker-entrypoint.sh"]
