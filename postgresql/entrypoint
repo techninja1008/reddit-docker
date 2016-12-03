@@ -1,0 +1,8 @@
+#!/bin/bash
+if [ ! -f /var/lib/postgresql/data/container_firststart ]; then
+	touch /var/lib/postgresql/data/container_firststart
+	sudo -u postgres createdb -E utf8 reddit
+	sudo -u postgres psql -f /install.sql reddit
+fi
+
+exec "$@"

@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ ! -f /var/lib/cassandra/container_firststart ]; then
+	touch /var/lib/cassandra/container_firststart
+	cqlsh -h localhost -f /install.cql
+fi
+
+exec "$@"

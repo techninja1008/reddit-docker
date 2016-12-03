@@ -1,7 +1,7 @@
 FROM rabbitmq
 
-RUN rabbitmqctl add_vhost /
-RUN rabbitmqctl add_user reddit reddit
-RUN rabbitmqctl set_permissions -p / reddit ".*" ".*" ".*"
+ADD entrypoint /entrypoint
 
 VOLUME /var/lib/rabbitmq
+
+CMD ["/bin/bash", "-c", "/entrypoint", "rabbitmq-server"]

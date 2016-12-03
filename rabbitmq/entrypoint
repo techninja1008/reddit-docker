@@ -1,0 +1,9 @@
+#!/bin/bash
+if [ ! -f /var/lib/rabbitmq/container_firststart ]; then
+	touch /var/lib/rabbitmq/container_firststart
+	rabbitmqctl add_vhost /
+	rabbitmqctl add_user reddit reddit
+	rabbitmqctl set_permissions -p / reddit ".*" ".*" ".*"
+fi
+
+exec "$@"

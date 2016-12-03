@@ -7,3 +7,5 @@ RUN psql -f /install.sql reddit
 USER root
 
 VOLUME /var/lib/postgresql/data
+ADD entrypoint /entrypoint
+CMD ["/bin/bash", "-c", "/entrypoint", "postgres"]
